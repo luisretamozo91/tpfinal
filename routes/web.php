@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/asistencia', 'asistenciaController@listaAlumnos')->name('tomar_asistencia');
 
 Route::post('/guardarAsis', 'asistenciaController@guardarAsitencia')->name('guardar_asistencia');
+
+Route::resource('/alumnos', 'AlumnosController');

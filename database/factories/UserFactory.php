@@ -41,3 +41,15 @@ $factory->define(App\Alumno::class, function (Faker $faker) {
         'grado_id' => 1,
     ];
 });
+
+$factory->define(App\Menu::class, function(Faker $faker){
+
+	$etiqueta = $faker->name;
+	$menus = App\Menu::all();
+	return[
+		'label' => $etiqueta,
+		'url' => str_slug($etiqueta),
+		//pluck extrae de una coleccion un arreglo con los id's
+		'padre' => (count($menus)>0)? $faker->randomElement($menus->pluck('id')->toArray()) : 0,
+	];
+});
